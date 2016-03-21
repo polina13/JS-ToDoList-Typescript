@@ -2,40 +2,34 @@ module ToDoList {
   export interface ITask {
     description: string;
     done: boolean;
-    priority: string;
+    priority: IPriority;
     markDone(): void;
     assignedTo?: IPerson;
   }
 
-  export interface IPerson {
-    name: string;
-    email: string;
-    phone?: string;
-  }
-
   export class Task implements ITask {
     done: boolean = false;
-    constructor( public description: string, public priority: string, public assignedTo?: IPerson) {}
+    constructor( public description: string, public assignedTo?: IPerson, public priority?: IPriority) {}
     markDone() {
       this.done = true;
     }
   }
 
   export class HomeTask extends Task {
-    constructor (public description: string, public priority: string, public assignedTo?: IPerson) {
+    constructor (public description: string, public priority: IPriority, public assignedTo?: IPerson) {
       super(description, priority);
     }
   }
 
   export class WorkTask extends Task {
-    constructor (public dueDate: Date, public description: string, public priority: string, public assignedTo: IPerson) {
+    constructor (public dueDate: Date, public description: string, public priority: IPriority, public assignedTo: IPerson) {
       super(description, priority, assignedTo);
     }
   }
 
   export class HobbyTask extends Task {
     constructor (public description: string) {
-      super(description, "low");
+      super(description, 3);
     }
   }
 }

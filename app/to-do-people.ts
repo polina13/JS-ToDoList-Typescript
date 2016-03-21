@@ -1,6 +1,12 @@
 /// <reference path="to-do-classes-interfaces.ts" />
 
 module ToDoList {
+  export interface IPerson {
+    name: string;
+    email: string;
+    phone?: string;
+  }
+
   var diane: ToDoList.IPerson = {
     name: "Diane D",
     email: "diane@epicodus.com"

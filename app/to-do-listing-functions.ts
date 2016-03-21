@@ -11,3 +11,6 @@ module ToDoList {
     return descriptions;
   }
 }
+
+// listing all tasks of given type
+// priority

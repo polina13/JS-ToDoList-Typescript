@@ -8,10 +8,11 @@ interface IPerson {
 interface ITask {
   description: string;
   done: boolean;
-  priority: string;
+  priority: IPriority;
   markDone(): void;
   assignedTo?: IPerson;
 }
+
 
 class Task implements ITask {
   done: boolean = false;
@@ -73,7 +74,6 @@ var tomorrow = new Date();
 tomorrow.setDate(today.getDate() + 1);
 var nextDay = new Date();
 nextDay.setDate(today.getDate() + 2);
-debugger;
 tasks.push(new WorkTask(today, "Update website.", "High", diane));
 tasks.push(new WorkTask(tomorrow, "Go to meeting.", "Medium", thor));
 tasks.push(new WorkTask(nextDay, "Clean ceiling.", "Low", loki));
